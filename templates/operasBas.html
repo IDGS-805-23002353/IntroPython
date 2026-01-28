@@ -2,7 +2,9 @@
 
 {% block content %}
 
-          <form action="/resultado" method="post">
+          <form action="/operasBas" method="post">
+                {{form.csrf_token}}
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
             <div class="mb-3">
                 <label for="n1" class="form-label">Numero 1</label>
                 <input type="text" class="form-control" name="n1" id="n1">
@@ -16,5 +18,7 @@
             <button class="btn btn-primary" type="submit">Calcular</button>
 
           </form>
+
+          <h1>La suma es {{res}}</h1>
 
 {%endblock%}
